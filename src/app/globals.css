@@ -1,0 +1,552 @@
+@import "tailwindcss";
+
+/*
+|--------------------------------------------------------------------------
+| SonicFlow AI Theme Tokens
+|--------------------------------------------------------------------------
+*/
+
+:root {
+  color-scheme: light;
+
+  --surface: #f8fafc;
+  --surface-lowest: #ffffff;
+  --surface-low: #f1f5f9;
+  --surface-container: #ffffff;
+  --surface-high: #e2e8f0;
+  --surface-highest: #cbd5e1;
+
+  --on-surface: #0f172a;
+  --on-surface-variant: #475569;
+
+  --primary: #4f46e5;
+  --on-primary: #ffffff;
+  --primary-container: #6366f1;
+
+  --secondary: #0284c7;
+  --on-secondary: #ffffff;
+
+  --tertiary: #059669;
+
+  --border-subtle: rgb(15 23 42 / 0.1);
+  --border-strong: rgb(15 23 42 / 0.18);
+
+  --shadow-color: 15 23 42;
+  --selection-bg: rgb(79 70 229 / 0.22);
+
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  --gradient-surface: radial-gradient(
+    circle at top,
+    rgb(99 102 241 / 0.12),
+    transparent 45%
+  );
+}
+
+.dark {
+  color-scheme: dark;
+
+  --surface: #0f131c;
+  --surface-lowest: #0a0e17;
+  --surface-low: #181b25;
+  --surface-container: #1c1f29;
+  --surface-high: #262a34;
+  --surface-highest: #31353f;
+
+  --on-surface: #dfe2ef;
+  --on-surface-variant: #c7c4d7;
+
+  --primary: #c0c1ff;
+  --on-primary: #0a0e17;
+  --primary-container: #8083ff;
+
+  --secondary: #4cd7f6;
+  --on-secondary: #0a0e17;
+
+  --tertiary: #4edea3;
+
+  --border-subtle: rgb(223 226 239 / 0.1);
+  --border-strong: rgb(223 226 239 / 0.18);
+
+  --shadow-color: 0 0 0;
+  --selection-bg: rgb(192 193 255 / 0.25);
+
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  --gradient-surface: radial-gradient(
+    circle at top,
+    rgb(128 131 255 / 0.14),
+    transparent 45%
+  );
+}
+
+/*
+|--------------------------------------------------------------------------
+| Tailwind CSS v4 Semantic Theme
+|--------------------------------------------------------------------------
+*/
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-lowest: var(--surface-lowest);
+  --color-surface-low: var(--surface-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-high: var(--surface-high);
+  --color-surface-highest: var(--surface-highest);
+
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+
+  --color-tertiary: var(--tertiary);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --font-sans: var(--font-geist);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-arabic: var(--font-ibm-plex-arabic);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Reset
+|--------------------------------------------------------------------------
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border-subtle);
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  background-color: var(--surface-lowest);
+  color: var(--on-surface);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    var(--gradient-surface),
+    var(--surface);
+  color: var(--on-surface);
+  font-family:
+    var(--font-geist),
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Arabic and RTL Typography
+|--------------------------------------------------------------------------
+*/
+
+html[dir="rtl"] body {
+  font-family:
+    var(--font-arabic),
+    "IBM Plex Sans Arabic",
+    sans-serif;
+}
+
+html[dir="rtl"] * {
+  letter-spacing: 0 !important;
+}
+
+html[dir="rtl"] {
+  text-align: right;
+}
+
+html[dir="rtl"] .font-display,
+html[dir="rtl"] .font-sans {
+  font-family:
+    var(--font-arabic),
+    "IBM Plex Sans Arabic",
+    sans-serif;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Interactive Elements
+|--------------------------------------------------------------------------
+*/
+
+button,
+input,
+textarea,
+select {
+  color: inherit;
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:not(:disabled),
+a[href],
+select:not(:disabled) {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+input,
+textarea,
+select {
+  background-color: var(--surface-container);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--on-surface-variant);
+  opacity: 0.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Media
+|--------------------------------------------------------------------------
+*/
+
+img,
+svg,
+video,
+canvas,
+audio {
+  display: block;
+  max-width: 100%;
+}
+
+canvas {
+  touch-action: pan-y;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Selection and Focus
+|--------------------------------------------------------------------------
+*/
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--on-surface);
+}
+
+::-moz-selection {
+  background-color: var(--selection-bg);
+  color: var(--on-surface);
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Scrollbar
+|--------------------------------------------------------------------------
+*/
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-highest) var(--surface-lowest);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--surface-lowest);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid var(--surface-lowest);
+  border-radius: 999px;
+  background-color: var(--surface-highest);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--on-surface-variant);
+}
+
+/*
+|--------------------------------------------------------------------------
+| 3D Utilities
+|--------------------------------------------------------------------------
+*/
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Shared Surfaces
+|--------------------------------------------------------------------------
+*/
+
+.surface-transition {
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.glass-surface {
+  border: 1px solid var(--border-subtle);
+  background-color: color-mix(
+    in srgb,
+    var(--surface-container) 78%,
+    transparent
+  );
+  box-shadow: 0 20px 60px rgb(var(--shadow-color) / 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-surface-strong {
+  border: 1px solid var(--border-subtle);
+  background-color: color-mix(
+    in srgb,
+    var(--surface-lowest) 88%,
+    transparent
+  );
+  box-shadow: 0 25px 80px rgb(var(--shadow-color) / 0.16);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Gradients
+|--------------------------------------------------------------------------
+*/
+
+.text-gradient-primary {
+  background-image: var(--gradient-primary);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+/*
+|--------------------------------------------------------------------------
+| High-Contrast Filled Controls
+|--------------------------------------------------------------------------
+*/
+
+.bg-primary,
+.bg-secondary,
+.bg-\(--primary\),
+.bg-\(--secondary\) {
+  color: #0a0e17;
+}
+
+html.dark .bg-primary,
+html.dark .bg-secondary,
+html.dark .bg-\(--primary\),
+html.dark .bg-\(--secondary\) {
+  color: #0a0e17;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Glow Utilities
+|--------------------------------------------------------------------------
+*/
+
+.glow-primary {
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--primary) 24%, transparent),
+    0 0 50px color-mix(in srgb, var(--primary) 14%, transparent);
+}
+
+.glow-secondary {
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--secondary) 24%, transparent),
+    0 0 50px color-mix(in srgb, var(--secondary) 14%, transparent);
+}
+
+.glow-tertiary {
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--tertiary) 24%, transparent),
+    0 0 50px color-mix(in srgb, var(--tertiary) 14%, transparent);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Ambient Utilities
+|--------------------------------------------------------------------------
+*/
+
+.ambient-grid {
+  background-image:
+    linear-gradient(
+      var(--border-subtle) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      var(--border-subtle) 1px,
+      transparent 1px
+    );
+  background-size: 54px 54px;
+}
+
+.ambient-dots {
+  background-image: radial-gradient(
+    circle,
+    var(--border-strong) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+section {
+  position: relative;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Loading Animation
+|--------------------------------------------------------------------------
+*/
+
+@keyframes sonicflow-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scaleY(0.45);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.sonicflow-pulse {
+  animation: sonicflow-pulse 850ms ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Accessibility
+|--------------------------------------------------------------------------
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .sonicflow-pulse {
+    animation: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .perspective-1000,
+  .perspective-1500 {
+    perspective: none;
+  }
+}
