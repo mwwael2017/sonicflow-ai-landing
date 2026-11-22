@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SONICFLOW AI — Interactive 3D SaaS Landing Page
 
-## Getting Started
+A modern, 3D-immersive SaaS landing page for **SonicFlow AI** — a real-time AI voice enhancement and spatial audio processing platform. Built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, **Three.js (React Three Fiber)**, and **Framer Motion**, featuring interactive WebGL 3D models, 5-language support with automatic `RTL`/`LTR` switching, and a dual Dark/Light theme engine.
 
-First, run the development server:
+🔗 **Live Demo:** [https://sonicflow-ai-landing.vercel.app](https://sonicflow-ai-landing.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🌐 Interactive 3D & Spatial UI (Three.js + Framer Motion)
+- **3D Reactive Ferrofluid Sound Orb:** Real-time WebGL resonator built with `@react-three/fiber` and `@react-three/drei` that responds to user drag controls and dynamically shifts geometry, distortion, and shaders when toggling between **Raw Mic (Noisy)** and **SonicFlow 3D Clear** modes.
+- **3D Bento Grid Architecture:** Four interactive feature cards wrapped in physics-based **3D Perspective Tilt** containers, each housing a custom interactive Three.js 3D visual (*Neural Noise Shield, Parametric 3D EQ, Spatial Stem Matrix, and Sub-6ms Kernel DSP Chip*).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🌍 5-Language i18n Engine & Automatic RTL/LTR
+- Full localization across **5 languages**: **English (`EN`)**, **Arabic (`AR`)**, **French (`FR`)**, **Dutch (`DU`)**, and **Italian (`IT`)**.
+- Seamless layout mirroring (`RTL` for Arabic, `LTR` for European languages) with adaptive Arabic typography (`IBM Plex Sans Arabic`) and `localStorage` persistence.
 
-## Learn More
+### 🎨 Dual Theme System (Dark & Light Modes)
+- Semantic CSS variable architecture switching smoothly between a deep space obsidian **Dark Mode** and a crisp glassmorphic **Light Mode**, dynamically adapting 3D lighting, materials, and UI surfaces.
 
-To learn more about Next.js, take a look at the following resources:
+### ⚡ Interactive SaaS Conversion Flows
+- **Live A/B Audio Playground:** Interactive audio mode switcher, 4 DSP studio presets, and an animated 28-band frequency spectrum visualizer.
+- **Dynamic Pricing Section:** Monthly/Yearly billing toggle (`Save 25%`) with an elevated 3D centerpiece card for the **Pro Creator** tier.
+- **Technical FAQ Accordion & Instant Trial Modal:** Smooth animated FAQ drawer and a simulated Free Trial License Generator modal (`SF3D-PRO-2026-XXXX`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
 
-## Deploy on Vercel
+- **Framework:** Next.js (App Router), React, TypeScript
+- **Styling:** Tailwind CSS, Semantic CSS Variables
+- **3D Graphics & Motion:** Three.js, React Three Fiber, Drei, Framer Motion
+- **Icons & Typography:** Lucide React, Space Grotesk, Geist, JetBrains Mono, IBM Plex Sans Arabic
+- **Deployment:** GitHub + Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Getting Started Locally
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/mwwael2017/sonicflow-ai-landing.git](https://github.com/mwwael2017/sonicflow-ai-landing.git)
+   cd sonicflow-ai-landing
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
